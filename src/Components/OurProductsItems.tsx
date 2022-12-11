@@ -10,7 +10,7 @@ const OurProductsItems = (props: any) => {
       />
       <div className="absolute flex flex-col gap-2 left-4 top-4 lg:top-8 lg:w-full lg:justify-center lg:items-center h-full lg:h-auto">
         <h1 className="text-cyan-300 text-3xl sm:text-5xl">{props.title}</h1>
-        <h4 className=" text-white text-xs w-96 pr-12 sm:text-lg lg:text-center">
+        <h4 className=" text-white text-xs w-96 pr-12 lg:pr-0 sm:text-lg lg:text-center">
           {props.description}
         </h4>
         <a

@@ -11,10 +11,7 @@ const HomeModal = () => {
   };
 
   const [modalIndex, setModalIndex] = useState(0);
-  const [slideEffect, setSlideEffect] = useState("");
-
   const nextSlideHandler = () => {
-    setSlideEffect("-right-full");
     if (modalIndex < 2) {
       setModalIndex((prev) => prev + 1);
     } else {
@@ -22,7 +19,6 @@ const HomeModal = () => {
     }
   };
   const previousSlideHandler = () => {
-    setSlideEffect("-left-full");
     if (modalIndex > 0) {
       setModalIndex((prev) => prev - 1);
     } else {
@@ -32,23 +28,31 @@ const HomeModal = () => {
   const sliderImages = [
     <div
       className={`h-full w-full absolute ${
-        modalIndex === 0
-          ? "left-0 right-0"
-          : `${modalIndex === 2 ? "-left-full" : "-right-full"}`
-      } transition-all ease-in-out duration-500`}
+        modalIndex === 1
+          ? "-translate-x-full opacity-0"
+          : modalIndex === 2
+          ? "translate-x-full opacity-0"
+          : modalIndex === 0
+          ? "translate-x-0"
+          : ""
+      } transition-all ease-in-out duration-300`}
     >
       <img
-        className="object-cover h-full w-full brig brightness-75"
+        className="object-cover h-full w-full brightness-75"
         src={graphicCard}
         alt="Image of anXbox One Controller"
       />
     </div>,
     <div
       className={`h-full w-full absolute ${
-        modalIndex === 1
-          ? "left-0 right-0"
-          : `${modalIndex === 0 ? "-left-full" : "-right-full"}`
-      } transition-all ease-in-out duration-500`}
+        modalIndex === 2
+          ? "-translate-x-full opacity-0"
+          : modalIndex === 0
+          ? "translate-x-full opacity-0"
+          : modalIndex === 1
+          ? "translate-x-0"
+          : ""
+      } transition-all ease-in-out duration-300`}
     >
       <img
         className="object-cover h-full w-full brightness-75"
@@ -58,10 +62,14 @@ const HomeModal = () => {
     </div>,
     <div
       className={`h-full w-full absolute ${
-        modalIndex === 2
-          ? "left-0 right-0"
-          : `${modalIndex === 1 ? "-left-full" : "-right-full"}`
-      } transition-all ease-in-out duration-500`}
+        modalIndex === 0
+          ? "-translate-x-full opacity-0"
+          : modalIndex === 1
+          ? "translate-x-full opacity-0"
+          : modalIndex === 2
+          ? "translate-x-0"
+          : ""
+      } transition-all ease-in-out duration-300`}
     >
       <img
         className="object-cover h-full w-full brightness-75"
@@ -72,8 +80,8 @@ const HomeModal = () => {
   ];
   return (
     <IconContext.Provider value={iconsStyles}>
-      <div className="bg-red-800 h-5/6 ">
-        <div className="h-full bg-amber-400">
+      <div className="bg-slate-800 h-5/6 ">
+        <div className="h-full bg-slate-800 ">
           <div className="relative h-full overflow-hidden">
             <>
               {sliderImages.map((item, index) => {

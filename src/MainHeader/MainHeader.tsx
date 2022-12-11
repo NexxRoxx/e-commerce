@@ -22,14 +22,18 @@ const MainHeader = () => {
           <img src={logo} alt="company logo" className="h-20" />
         </div>
         <div
-          className={`lg:block absolute bottom-0 translate-y-full bg-slate-800 w-full z-10
+          className={`absolute bottom-0 translate-y-full lg:block lg:static lg:opacity-100 lg:translate-y-0  bg-slate-800 w-full lg:w-auto z-10
           ${
             displayMenu === "block" ? "opacity-100" : "opacity-0"
           } transition ease-in-out duration-500`}
         >
-          <ul className="flex flex-col gap-4 p-4">
+          <ul
+            className={`flex flex-col lg:flex-row gap-4 p-4 ${
+              displayMenu === "block" ? "block" : "hidden"
+            }lg-block`}
+          >
             <li className="hover:text-blue-400 hover:cursor-pointer">Inicio</li>
-            <li className="hover:text-blue-400 hover:cursor-pointer">
+            <li className="hover:text-blue-400 hover:cursor-pointer lg:hidden">
               Iniciar Sesion
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">

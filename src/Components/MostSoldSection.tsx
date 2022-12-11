@@ -58,7 +58,7 @@ const MostSoldSection = () => {
       <h1 className="bg-slate-800 text-2xl pl-2 pt-3 pb-4 text-white font-medium">
         MOST SOLD PRODUCTS
       </h1>
-      <div className="h-70 bg-slate-800 flex justify-around px-10 pb-10 relative">
+      <div className="h-70 bg-slate-800 flex justify-center gap-5 px-10 pb-10 relative">
         {items.map((item, index) => {
           if (index < numberOfCards + cardsRender && index >= numberOfCards) {
             return (
@@ -76,11 +76,11 @@ const MostSoldSection = () => {
           }
         })}
         <BsChevronLeft
-          className="absolute left-4 bottom-2/4 fill-slate-300 p-2 bg-gray-600 bg-opacity-40 cursor-pointer"
+          className="absolute left-4 bottom-2/4 fill-slate-300 p-2 bg-gray-600 bg-opacity-40 cursor-pointer z-50"
           onClick={clickLeftHandler}
         />
         <BsChevronRight
-          className="absolute right-4 bottom-2/4 fill-slate-300 p-2 bg-gray-600 bg-opacity-40 cursor-pointer"
+          className="absolute right-4 bottom-2/4 fill-slate-300 p-2 bg-gray-600 bg-opacity-40 cursor-pointer z-50"
           onClick={clickRightHandler}
         />
       </div>
