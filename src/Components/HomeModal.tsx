@@ -80,9 +80,9 @@ const HomeModal = () => {
   ];
   return (
     <IconContext.Provider value={iconsStyles}>
-      <div className="bg-slate-800 h-5/6 ">
+      <div className="bg-slate-800 h-[80vh] lg:h-[90vh] ">
         <div className="h-full bg-slate-800 ">
-          <div className="relative h-full overflow-hidden">
+          <div className="relative h-full overflow-hidden brightness-75">
             <>
               {sliderImages.map((item, index) => {
                 return item;

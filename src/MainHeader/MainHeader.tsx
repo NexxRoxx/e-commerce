@@ -30,7 +30,7 @@ const MainHeader = () => {
           <ul
             className={`flex flex-col lg:flex-row gap-4 p-4 ${
               displayMenu === "block" ? "block" : "hidden"
-            }lg-block`}
+            } lg:flex`}
           >
             <li className="hover:text-blue-400 hover:cursor-pointer">Inicio</li>
             <li className="hover:text-blue-400 hover:cursor-pointer lg:hidden">

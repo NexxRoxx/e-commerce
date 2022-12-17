@@ -58,7 +58,8 @@ const MostSoldSection = () => {
       <h1 className="bg-slate-800 text-2xl pl-2 pt-3 pb-4 text-white font-medium">
         MOST SOLD PRODUCTS
       </h1>
-      <div className="h-70 bg-slate-800 flex justify-center gap-5 px-10 pb-10 relative">
+      {/* <div className="h-70 bg-slate-800 flex justify-center gap-5 px-10 pb-10 relative"> */}
+      <div className="bg-slate-800 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-x-2 px-10 pb-10 relative">
         {items.map((item, index) => {
           if (index < numberOfCards + cardsRender && index >= numberOfCards) {
             return (

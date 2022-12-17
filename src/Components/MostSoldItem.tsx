@@ -8,11 +8,11 @@ const MostSoldItem = (props: any) => {
   return (
     <IconContext.Provider value={iconsStyles}>
       {/* <div className=" h-96 w-36 flex flex-col relative shadow-sm shadow-white bg-slate-400 rounded-sm hover:shadow-lg"> */}
-      <div className="w-56 flex flex-col relative shadow-sm bg-white shadow-black rounded-sm hover:shadow-lg">
+      <div className="h-[60vh] lg:h-[80vh] flex flex-col relative border-2 bg-white shadow-black rounded-lg hover:shadow-md">
         <img
           src={props.img}
           alt="controller"
-          className="h-3/5 w-full object-contain bg-white"
+          className="h-2/5 lg:h-3/5 w-full p-2 lg:p-10 object-contain bg-white"
         />
         <span className=" text-neutral-900  text-sm pb-2 pl-2">
           {props.branch}
