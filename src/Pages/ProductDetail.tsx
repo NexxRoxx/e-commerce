@@ -1,14 +1,16 @@
 import HomeModal from "../Components/HomeModal";
+import SecondSlider from "../Components/SecondSlider";
 import Slider from "../Components/Slider";
 
 const ProductDetail = () => {
   return (
-    <div className="pt-4 bg-slate-900 lg:flex">
-      <div className=" flex justify-center flex-col items-center mt-4 mb-4">
-        <span className="text-white self-start">root/root/root/root</span>
-        <Slider />
+    <div className="pt-4 bg-slate-900 lg:flex justify-around ">
+      <div className="flex justify-center flex-col items-center mt-1 mb-4 p-4 lg:pl-8 lg:w-2/4">
+        {/* <Slider /> */}
+        <h4 className="text-white self-start pb-2">root/root/root/root</h4>
+        <SecondSlider />
       </div>
-      <div>
+      <div className="lg:w-2/4 lg:mt-20">
         <span className="text-white opacity-70 pl-4">Brand</span>
         <h1 className="text-white text-lg pl-4 font-bold">
           Samsung 970 EVO Plus SSD 2TB NVMe M.2 Internal Solid State Hard Drive
@@ -22,7 +24,7 @@ const ProductDetail = () => {
             <select
               name="nums"
               id="num-select"
-              className="w-full h-8 outline-none rounded-md px-4"
+              className="w-full lg:w-auto h-8 outline-none rounded-md px-4"
             >
               <option value="1">1</option>
               <option value="2">2</option>

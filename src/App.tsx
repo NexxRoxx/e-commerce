@@ -10,8 +10,8 @@ function App() {
     <>
       <MainHeader />
       {/* <HomePage /> */}
-      {/* <ShopPage /> */}
-      <ProductDetail />
+      <ShopPage />
+      {/* <ProductDetail /> */}
       <Footer />
     </>
   );
