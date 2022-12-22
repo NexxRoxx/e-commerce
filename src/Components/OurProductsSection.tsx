@@ -47,7 +47,7 @@ const OurProductsSection = () => {
       <h1 className="bg-slate-800 text-2xl pl-2 pt-3 pb-4 text-white font-medium">
         OUR PRODUCTS
       </h1>
-      <div className="lg:grid grid-cols-2 grid-rows-3 auto-rows-fr gap-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full overflow-hidden pb-2 ">
+      <div className="lg:grid grid-cols-2 grid-rows-3 auto-rows-fr gap-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full overflow-hidden pb-2">
         {items.map((item) => {
           return (
             <OurProductsItems
