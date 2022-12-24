@@ -1,7 +1,9 @@
 import logo from "../assets/logo.png";
 import { AiOutlineBars } from "react-icons/ai";
+import { BiUserCircle, BiSearch } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const MainHeader = () => {
   const iconsStyles = {
@@ -19,7 +21,9 @@ const MainHeader = () => {
     <IconContext.Provider value={iconsStyles}>
       <nav className="flex justify-around lg:justify-between bg-slate-800 text-yellow-100 h-14 items-center shadow-2xl relative">
         <div className="lg:pl-10">
-          <img src={logo} alt="company logo" className="h-20" />
+          <NavLink to="/">
+            <img src={logo} alt="company logo" className="h-20" />
+          </NavLink>
         </div>
         <div
           className={`absolute bottom-0 translate-y-full lg:block lg:static lg:opacity-100 lg:translate-y-0  bg-slate-800 w-full lg:w-auto z-10
@@ -32,12 +36,20 @@ const MainHeader = () => {
               displayMenu === "block" ? "block" : "hidden"
             } lg:flex`}
           >
-            <li className="hover:text-blue-400 hover:cursor-pointer">Inicio</li>
+            <li className="hover:text-blue-400 hover:cursor-pointer">
+              <NavLink to="/" onClick={menuHandler}>
+                Inicio
+              </NavLink>
+            </li>
             <li className="hover:text-blue-400 hover:cursor-pointer lg:hidden">
-              Iniciar Sesion
+              <NavLink to="/login" onClick={menuHandler}>
+                Iniciar Sesion
+              </NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
-              Productos
+              <NavLink to="/shop" onClick={menuHandler}>
+                Productos
+              </NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
               Soporte
@@ -50,7 +62,12 @@ const MainHeader = () => {
             </li>
           </ul>
         </div>
-        <div className="hidden lg:block pr-10">utilities</div>
+        <div className="hidden lg:flex gap-4 pr-10">
+          <BiSearch className="cursor-text" />
+          <NavLink to="login">
+            <BiUserCircle className="cursor-pointer" />
+          </NavLink>
+        </div>
         <div className="lg:hidden">
           <AiOutlineBars onClick={menuHandler} className="cursor-pointer" />
         </div>

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const LoginPage = () => {
   return (
     <div className="selection:bg-rose-500 selection:text-white min-h-screen">
@@ -67,12 +69,12 @@ const LoginPage = () => {
               </a>
               <h5 className="pt-4 text-sm opacity-80">
                 Need an account?{" "}
-                <a
-                  href="#"
+                <NavLink
+                  to="signup"
                   className="text-indigo-900 opacity-100 font-bold hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   Sign Up
-                </a>
+                </NavLink>
               </h5>
             </div>
           </div>
