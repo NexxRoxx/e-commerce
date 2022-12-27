@@ -64,12 +64,14 @@ const MostSoldSection = () => {
           if (index < numberOfCards + cardsRender && index >= numberOfCards) {
             return (
               <MostSoldItem
+                id={items[index].id}
                 img={items[index].img}
                 branch={items[index].branch}
                 product={items[index].productName}
                 stars={items[index].stars}
                 price={items[index].price}
                 delivery={items[index].delivery}
+                quantity={1}
               />
             );
           } else {

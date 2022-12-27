@@ -11,6 +11,7 @@ import wdSSD from "../assets/mostSoldImg/2/ssd/one.jpg";
 
 export const items = [
   {
+    id: 1,
     img: rtx3090,
     branch: "EVGA",
     productName: "Nvidia GeForce RTX 3090 XC3 BLACK GAMING",
@@ -19,6 +20,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 2,
     img: ryzen9,
     branch: "AMD RYZEN",
     productName: "AMD Ryzen 9 5900X 12-core, 24-Thread Unlocked",
@@ -27,6 +29,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 3,
     img: asusBoard,
     branch: "ASUS",
     productName: "Asus ROG Maximus XIII Extreme (WiFi 6E) Z590 LGA 1200",
@@ -35,6 +38,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 4,
     img: kingRam,
     branch: "KINGSTON",
     productName: "Kingston FURY Beast RGB 16GB 3200MHz DDR4 CL16 Desktop",
@@ -43,6 +47,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 5,
     img: samsungSSD,
     branch: "SAMSUNG",
     productName:
@@ -52,6 +57,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 6,
     img: razerHeadphones,
     branch: "RAZER",
     productName: "Razer BlackShark V2 Pro Wireless Gaming Headset: THX 7.1",
@@ -60,6 +66,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 7,
     img: rtx4090,
     branch: "MSI",
     productName: "MSI Gaming GeForce RTX 4090 24GB GDRR6X 384-Bit HDMI",
@@ -68,6 +75,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 8,
     img: intelCPU,
     branch: "INTEL",
     productName:
@@ -77,6 +85,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 9,
     img: tomahawk,
     branch: "MSI",
     productName:
@@ -86,6 +95,7 @@ export const items = [
     delivery: "Free delivery",
   },
   {
+    id: 10,
     img: wdSSD,
     branch: "WD_BLACK",
     productName:
