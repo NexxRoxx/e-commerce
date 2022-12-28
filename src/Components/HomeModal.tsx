@@ -80,7 +80,7 @@ const HomeModal = () => {
   ];
   return (
     <IconContext.Provider value={iconsStyles}>
-      <div className="bg-slate-800 h-[80vh] lg:h-[70vh] ">
+      <div className="bg-slate-800 h-[60vh] lg:h-[70vh] ">
         <div className="h-full bg-slate-800 ">
           <div className="relative h-full overflow-hidden brightness-75">
             <>

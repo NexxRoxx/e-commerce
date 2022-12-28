@@ -9,11 +9,14 @@ import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ShopPage from "./Pages/ShopPage";
 import SignUpPage from "./Pages/SignUpPage";
 import { Route, Routes } from "react-router-dom";
+import CartPage from "./Pages/CartPage";
 
 function App() {
   return (
     <>
-      <MainHeader />
+      <header className="sticky top-0 z-50">
+        <MainHeader />
+      </header>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login/signup" element={<SignUpPage />} />
@@ -21,6 +24,7 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/detail" element={<ProductDetail />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </>

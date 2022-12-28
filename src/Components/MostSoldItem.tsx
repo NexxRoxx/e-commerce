@@ -44,11 +44,11 @@ const MostSoldItem = (props: any) => {
         <span className="font-bold text-md text-neutral-900 pl-2">
           {props.price}
         </span>
-        <span className=" absolute bottom-2 right-4 bg-sky-600 rounded-full p-2 shadow-sm shadow-black opacity-70 pl-2 hover:bg-slate-800">
-          <BsCartPlus
-            className="fill-white cursor-pointer"
-            onClick={addToCartHandler}
-          />
+        <span
+          className="cursor-pointer select-none absolute bottom-2 right-4 bg-sky-600 rounded-full p-2 shadow-sm shadow-black opacity-70 pl-2 hover:bg-slate-800"
+          onClick={addToCartHandler}
+        >
+          <BsCartPlus className="fill-white" />
         </span>
         <span className="text-neutral-700 pt-2 pl-2">{props.delivery}</span>
       </div>

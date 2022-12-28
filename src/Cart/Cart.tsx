@@ -1,47 +1,49 @@
 import { useSelector } from "react-redux";
-import { FiTrash2 } from "react-icons/fi";
+import CartItem from "./CartItem";
+import { useEffect } from "react";
+import { cartActions } from "../store/cart-slice";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const cartData = JSON.parse(window.localStorage.getItem("cart") || "{}");
+    dispatch(
+      cartActions.replaceCart({
+        items: cartData.items || [],
+        totalQuantity: cartData.totalQuantity || 0,
+        totalPrice: cartData.totalPrice || 0,
+      })
+    );
+  }, []);
   const cartItems = useSelector((state: any) => state.cart);
   return (
-    <div className="bg-white w-80 absolute top-8 hidden -right-4 z-30 group-hover:flex p-4 flex-col">
+    <div className="bg-white w-80 max-h-[90vh] absolute top-8 hidden -right-4 z-30 group-hover:flex p-4 flex-col">
       <h1 className="text-black text-lg font-bold mb-2">Shopping Cart</h1>
-      {cartItems.items.length > 0 ? (
-        cartItems.items.map((item: any, index: any) => {
-          return (
-            <div className="flex gap-2 relative mb-2">
-              <span className="text-black absolute right-2 bottom-7">
-                qty: {item.quantity}
-              </span>
-              <FiTrash2
-                className="absolute right-2 bottom-1 cursor-pointer"
-                size={20}
-                color={"black"}
+      <div className="overflow-y-auto mb-4">
+        {cartItems.items.length > 0 ? (
+          cartItems.items.map((item: any, index: any) => {
+            return (
+              <CartItem
+                id={item.id}
+                quantity={item.quantity}
+                img={item.img}
+                productName={item.productName}
+                price={item.price}
+                delivery={item.delivery}
               />
-              <div>
-                <img
-                  src={item.img}
-                  alt={item.productName}
-                  className="h-20 w-28 border-2 border-gray-400 p-1 cursor-pointer"
-                />
-              </div>
-              <div>
-                <h1 className="text-blue-800 text-sm">{item.productName}</h1>
-                <h4 className="text-black text-sm font-bold">{`$${item.price}`}</h4>
-                <span className="text-gray-800 text-sm">{item.delivery}</span>
-              </div>
-            </div>
-          );
-        })
-      ) : (
-        <div>
-          <h1 className="text-gray-600 mt-2 mb-2">Your cart is empty</h1>
-          <h4 className="text-gray-600 mb-8">Time to start shopping!</h4>
-        </div>
-      )}
+            );
+          })
+        ) : (
+          <div>
+            <h1 className="text-gray-600 mt-2 mb-2">Your cart is empty</h1>
+            <h4 className="text-gray-600 mb-8">Time to start shopping!</h4>
+          </div>
+        )}
+      </div>
       {cartItems.items.length > 0 ? (
         <div className="text-black bg-slate-300 text-center font-bold p-2">
-          Total: ${cartItems.totalPrice}
+          Total: ${cartItems.totalPrice.toFixed(2)}
         </div>
       ) : (
         ""

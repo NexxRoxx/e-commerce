@@ -25,7 +25,7 @@ const MainHeader = () => {
   return (
     <IconContext.Provider value={iconsStyles}>
       <nav className="flex justify-around lg:justify-between bg-slate-800 text-yellow-100 h-14 items-center shadow-2xl relative">
-        <div className="lg:pl-10">
+        <div className="lg:pl-10 z-40">
           <NavLink to="/">
             <img src={logo} alt="company logo" className="h-20" />
           </NavLink>
