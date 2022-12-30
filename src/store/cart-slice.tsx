@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import rtx3090 from "../assets/mostSoldImg/1/rtx3090/one.png";
 
 interface state {
   items: any[];
@@ -38,11 +37,13 @@ const cartSlice = createSlice({
           productName: newItem.productName,
           stars: newItem.stars,
           price: newItem.price,
+          totalPrice: newItem.price,
           delivery: newItem.delivery,
           quantity: 1,
         });
       } else {
         existingItem.quantity++;
+        existingItem.totalPrice = existingItem.totalPrice + newItem.price;
       }
       localStorage.setItem("cart", JSON.stringify(state));
     },
@@ -55,6 +56,7 @@ const cartSlice = createSlice({
         state.items = state.items.filter((item) => item.id !== id);
       } else {
         existingItem?.quantity ? existingItem.quantity-- : "";
+        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
       }
       localStorage.setItem("cart", JSON.stringify(state));
     },

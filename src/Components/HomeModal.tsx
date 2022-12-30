@@ -38,7 +38,7 @@ const HomeModal = () => {
       } transition-all ease-in-out duration-300`}
     >
       <img
-        className="object-cover h-full w-full brightness-75"
+        className="object-cover h-full w-full brightness-75 aspect-[3/2]"
         src={graphicCard}
         alt="Image of anXbox One Controller"
       />
@@ -55,7 +55,7 @@ const HomeModal = () => {
       } transition-all ease-in-out duration-300`}
     >
       <img
-        className="object-cover h-full w-full brightness-75"
+        className="object-cover h-full w-full brightness-75 aspect-[3/2]"
         src={cpu}
         alt="Image of anXbox One Controller"
       />

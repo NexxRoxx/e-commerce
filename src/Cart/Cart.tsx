@@ -3,6 +3,7 @@ import CartItem from "./CartItem";
 import { useEffect } from "react";
 import { cartActions } from "../store/cart-slice";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -51,9 +52,11 @@ const Cart = () => {
       <button className="w-full bg-blue-500 hover:bg-blue-600 py-2 text-sm mt-1 text-black rounded-md">
         Checkout
       </button>
-      <button className="w-full bg-red-500 hover:bg-red-600 py-2 text-sm mt-1 text-black rounded-md">
-        View cart
-      </button>
+      <NavLink to="/cart">
+        <button className="w-full bg-red-500 hover:bg-red-600 py-2 text-sm mt-1 text-black rounded-md">
+          View cart
+        </button>
+      </NavLink>
     </div>
   );
 };

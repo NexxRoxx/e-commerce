@@ -67,13 +67,15 @@ const MainHeader = () => {
             </li>
           </ul>
         </div>
-        <div className="hidden lg:flex gap-4 pr-10">
-          <BiSearch className="cursor-text" />
-          <NavLink to="login">
+        <div className="flex lg:flex lg:gap-4  lg:pr-10">
+          <BiSearch className="cursor-text hidden lg:block" />
+          <NavLink to="login" className="hidden lg:block">
             <BiUserCircle className="cursor-pointer" />
           </NavLink>
-          <div className="relative group ">
-            <BsCart4 className="cursor-pointer" />
+          <div className="relative group">
+            <NavLink to="/cart">
+              <BsCart4 className="cursor-pointer" />
+            </NavLink>
             <div className="absolute h-5 w-5 rounded-full bg-red-600 -bottom-1 -right-1 text-center cursor-pointer">
               {cartItems.totalQuantity}
             </div>

@@ -41,7 +41,7 @@ const Slider = () => {
     <>
       <div className="relative flex items-center w-[90vw] h-[50vh] lg:w-[60vw] lg:h-[60vh]">
         <MdChevronLeft
-          className="opacity-50 cursor-pointer hover:opacity-100 hidden lg:block translate-x-12 bg-slate-400 rounded-md z-30"
+          className="opacity-50 cursor-pointer hover:opacity-100 hidden lg:block translate-x-12 bg-slate-400 rounded-md z-30 "
           onClick={slideLeft}
           size={40}
         />

@@ -1,6 +1,28 @@
 import { NavLink } from "react-router-dom";
+import { useRef, useState } from "react";
 
 const LoginPage = () => {
+  const emailRef: any = useRef();
+  const passwordRef: any = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+    } catch {
+      setError("Failed to log in");
+    }
+
+    setLoading(false);
+  }
   return (
     <div className="selection:bg-rose-500 selection:text-white min-h-screen">
       <div className="min-h-screen bg-slate-800 flex justify-center items-center">
@@ -29,6 +51,7 @@ const LoginPage = () => {
                     id="email"
                     name="email"
                     type="text"
+                    ref={emailRef}
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
                     placeholder="example@example.com"
                   />
@@ -44,6 +67,7 @@ const LoginPage = () => {
                     id="password"
                     type="password"
                     name="password"
+                    ref={passwordRef}
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
                     placeholder="Password"
                   />
