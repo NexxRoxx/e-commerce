@@ -1,7 +1,15 @@
-export {};
 import { auth } from "../Resources/Firebase";
-
-import { createSlice } from "@reduxjs/toolkit";
+// import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
+import {
+  createSlice,
+  applyMiddleware,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from "react-redux";
 
 interface state {
   currentUser: any;
@@ -9,7 +17,7 @@ interface state {
 }
 
 const initialState: state = {
-  currentUser: "",
+  currentUser: undefined,
   loading: true,
 };
 
@@ -17,32 +25,17 @@ const loginSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    signup(state, action) {
-      auth.createUserWithEmailAndPassword(
-        action.payload.email,
-        action.payload.password
-      );
-    },
-    login(state, action) {
-      auth.signInWithEmailAndPassword(
-        action.payload.email,
-        action.payload.password
-      );
-    },
-    logout(state, action) {
-      auth.signOut();
-    },
-    resetPassword(state, action) {
-      auth.sendPasswordResetEmail(action.payload.email);
-    },
-    updateEmail(state, action) {
-      state.currentUser.updateEmail(action.payload.email);
-    },
-    updatePassword(state, action) {
-      state.currentUser.updatePassword(action.payload.password);
+    setCurrentUser(state, action) {
+      state.currentUser = action.payload.user;
     },
   },
 });
 
-export const cartActions = loginSlice.actions;
+// export const logan = (email: any, password: any) => {
+//   return auth.signInWithEmailAndPassword(email, password);
+// };
+
+// export const loginActions = loginSlice.actions;
+// export default loginSlice;
 export default loginSlice;
+export const loginActions = loginSlice.actions;

@@ -10,6 +10,11 @@ import ShopPage from "./Pages/ShopPage";
 import SignUpPage from "./Pages/SignUpPage";
 import { Route, Routes } from "react-router-dom";
 import CartPage from "./Pages/CartPage";
+import ProfileInformation from "./Pages/ProfileInformation";
+import MyProfile from "./Pages/MyProfile";
+import MyProfileActivity from "./Components/MyProfileActivity";
+import MyProfileAccount from "./Components/MyProfileAccount";
+import EditProfile from "./Components/EditProfile";
 
 function App() {
   return (
@@ -25,6 +30,16 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/detail" element={<ProductDetail />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/profileinformation" element={<ProfileInformation />} />
+        <Route path="/myprofile" element={<MyProfile />}>
+          <Route path="/myprofile/activity" element={<MyProfileActivity />} />
+          <Route path="/myprofile/account" element={<MyProfileAccount />}>
+            <Route
+              path="/myprofile/account/editprofile"
+              element={<EditProfile />}
+            />
+          </Route>
+        </Route>
       </Routes>
       <Footer />
     </>

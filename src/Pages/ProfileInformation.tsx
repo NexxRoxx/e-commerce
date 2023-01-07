@@ -1,34 +1,27 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { auth } from "../Resources/Firebase";
 
-const SignUpPage = () => {
+const ProfileInformation = () => {
   let navigate = useNavigate();
-  const emailRef: any = useRef();
-  const passwordRef: any = useRef();
-  const passwordConfirmRef: any = useRef();
+  const nameRef: any = useRef();
+  const addressRef: any = useRef();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async function (e: any) {
     e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match");
-    }
     try {
       setError("");
       setLoading(true);
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        emailRef.current.value,
-        passwordRef.current.value
-      );
-      console.log(user);
-      navigate("/profile");
+      await updateProfile(auth.currentUser, {
+        displayName: nameRef.current.value,
+        photoURL: addressRef.current.value,
+      });
+      navigate("/");
     } catch (ere) {
       setError("Failed to log in");
-      console.log(ere);
     }
     setLoading(false);
   };
@@ -52,7 +45,7 @@ const SignUpPage = () => {
             </div>
             <div className="px-10 pt-4 pb-8 bg-white rounded-tr-4xl">
               <h1 className="text-3xl font-semibold text-gray-900 text-center">
-                Sign Up
+                Basic Profile Information
               </h1>
               <form
                 className="mt-4"
@@ -62,58 +55,41 @@ const SignUpPage = () => {
               >
                 <div className="relative">
                   <input
-                    id="email"
-                    name="email"
-                    ref={emailRef}
+                    id="name"
+                    name="name"
+                    ref={nameRef}
                     type="text"
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
-                    placeholder="example@example.com"
+                    placeholder="oscar"
                   />
                   <label
-                    htmlFor="email"
+                    htmlFor="name"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm cursor-text"
                   >
-                    Email address
+                    Name
                   </label>
                 </div>
                 <div className="mt-6 relative">
                   <input
-                    id="password"
-                    type="password"
-                    ref={passwordRef}
+                    id="address"
+                    type="string"
+                    ref={addressRef}
                     name="password"
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
                     placeholder="Password"
                   />
                   <label
-                    htmlFor="password"
+                    htmlFor="address"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm cursor-text"
                   >
-                    Password
+                    Profile Image
                   </label>
                 </div>
-                <div className="mt-6 relative">
-                  <input
-                    id="passwordConfirmation"
-                    type="password"
-                    ref={passwordConfirmRef}
-                    name="passwordConfirmation"
-                    className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
-                    placeholder="PasswordConfirmation"
-                  />
-                  <label
-                    htmlFor="passwordConfirmation"
-                    className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm cursor-text"
-                  >
-                    Password Confirmation
-                  </label>
-                </div>
-
                 <button
                   type="submit"
                   className="mt-20 px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500 focus:ring-opacity-80 cursor-pointer"
                 >
-                  Sign up
+                  Submit
                 </button>
               </form>
               <a
@@ -128,7 +104,7 @@ const SignUpPage = () => {
                   href="#"
                   className="text-indigo-900 opacity-100 font-bold hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
-                  Sign Up
+                  Submit
                 </a>
               </h5>
             </div>
@@ -139,4 +115,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default ProfileInformation;

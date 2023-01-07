@@ -1,28 +1,30 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Resources/Firebase";
 const LoginPage = () => {
+  let navigate = useNavigate();
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
-  const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
 
-  async function handleSubmit(e) {
+  const handleSubmit = async function (e: any) {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
-    } catch {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      navigate("/");
+    } catch (ere) {
       setError("Failed to log in");
     }
-
     setLoading(false);
-  }
+  };
   return (
     <div className="selection:bg-rose-500 selection:text-white min-h-screen">
       <div className="min-h-screen bg-slate-800 flex justify-center items-center">
@@ -45,7 +47,12 @@ const LoginPage = () => {
               <h1 className="text-2xl font-semibold text-gray-900">
                 Welcome back!
               </h1>
-              <form className="mt-4" action="" method="POST">
+              <form
+                className="mt-4"
+                action=""
+                method="POST"
+                onSubmit={handleSubmit}
+              >
                 <div className="relative">
                   <input
                     id="email"
@@ -78,12 +85,12 @@ const LoginPage = () => {
                     Password
                   </label>
                 </div>
-
-                <input
-                  type="sumbit"
-                  value="Sign in"
+                <button
+                  type="submit"
                   className="mt-20 px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500 focus:ring-opacity-80 cursor-pointer"
-                />
+                >
+                  Sign in
+                </button>
               </form>
               <a
                 href="#"

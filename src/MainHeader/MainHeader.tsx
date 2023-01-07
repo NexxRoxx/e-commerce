@@ -3,15 +3,24 @@ import { AiOutlineBars } from "react-icons/ai";
 import { BiUserCircle, BiSearch } from "react-icons/bi";
 import { BsCart4 } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
+import { auth } from "../Resources/Firebase";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 
 const MainHeader = () => {
   const iconsStyles = {
     size: "2rem",
   };
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user: any) => {
+      setCurrentUser(user);
+    });
+  }, [auth]);
 
   const cartItems = useSelector((state: any) => state.cart);
 
@@ -21,6 +30,15 @@ const MainHeader = () => {
     displayMenu === "hidden"
       ? setDisplayMenu("block")
       : setDisplayMenu("hidden");
+  };
+
+  const signOutHandle = async function (e: any) {
+    e.preventDefault();
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <IconContext.Provider value={iconsStyles}>
@@ -69,8 +87,36 @@ const MainHeader = () => {
         </div>
         <div className="flex lg:flex lg:gap-4  lg:pr-10">
           <BiSearch className="cursor-text hidden lg:block" />
-          <NavLink to="login" className="hidden lg:block">
+          <NavLink to="login" className="hidden lg:block group relative">
             <BiUserCircle className="cursor-pointer" />
+            {currentUser ? (
+              <div className="hidden absolute group-hover:flex flex-col justify-center items-center gap-2 -left-28 w-52 bg-slate-800 p-2 pt-4 cursor-auto">
+                <img
+                  src={auth.currentUser.photoURL}
+                  alt=""
+                  className="rounded-full w-20 h-20 aspect-[3/2] object-cover"
+                />
+                <h1>Hello, {auth.currentUser.displayName}</h1>
+                <NavLink
+                  to="/"
+                  className="bg-red-500 px-2 text-center rounded-lg py-2 w-full hover:bg-red-600"
+                >
+                  <button className="text-center" onClick={signOutHandle}>
+                    Go to profile {"->"}
+                  </button>
+                </NavLink>
+                <NavLink
+                  to="/"
+                  className="bg-blue-500 px-2 text-center rounded-lg py-2 w-full hover:bg-blue-600"
+                >
+                  <button className="text-center" onClick={signOutHandle}>
+                    Sign out
+                  </button>
+                </NavLink>
+              </div>
+            ) : (
+              ""
+            )}
           </NavLink>
           <div className="relative group">
             <NavLink to="/cart">
