@@ -38,6 +38,10 @@ function App() {
               path="/myprofile/account/editprofile"
               element={<EditProfile />}
             />
+            <Route
+              path="/myprofile/account/resetpassword"
+              element={<ResetPasswordPage />}
+            />
           </Route>
         </Route>
       </Routes>

@@ -19,7 +19,7 @@ const Cart = () => {
   }, []);
   const cartItems = useSelector((state: any) => state.cart);
   return (
-    <div className="bg-white w-80 max-h-[90vh] absolute top-8 hidden -right-4 z-30 group-hover:flex p-4 flex-col">
+    <div className="bg-white w-80 max-h-[90vh] absolute top-8 hidden -right-4 z-30 lg:group-hover:flex p-4 flex-col">
       <h1 className="text-black text-lg font-bold mb-2">Shopping Cart</h1>
       <div className="overflow-y-auto mb-4">
         {cartItems.items.length > 0 ? (

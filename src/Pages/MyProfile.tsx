@@ -10,7 +10,10 @@ const MyProfile = () => {
             <NavLink to="/myprofile/activity">Activity</NavLink>
           </li>
           <li>
-            <NavLink to="/myprofile/account" className="hover:text-gray-400">
+            <NavLink
+              to="/myprofile/account/editprofile"
+              className="hover:text-gray-400"
+            >
               Account
             </NavLink>
           </li>

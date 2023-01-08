@@ -30,18 +30,18 @@ const EditProfile = () => {
   };
   return (
     <div className="">
-      <div className="flex gap-2 items-center">
-        <h1 className="text-xl text-black font-bold">Name:</h1>
-        <span className="text-lg text-red-300">
+      <div className="flex flex-col lg:flex-row gap-2 items-center">
+        <h1 className="text-base lg:text-xl text-black font-bold">Name:</h1>
+        <span className="text-base lg:text-lg text-red-300">
           {currentUser ? currentUser.displayName : ""}
         </span>
       </div>
-      <div className="flex flex-col gap-2 mt-8">
-        <h1 className="text-xl text-black font-bold">Profile Image: </h1>
+      <div className="flex flex-col items-center lg:items-start gap-2 mt-8">
+        <h1 className="lg:text-xl text-black font-bold">Profile Image: </h1>
         <img
           src={currentUser ? currentUser.photoURL : ""}
           alt="Profile Image"
-          className="w-28 h-28 rounded-full aspect-[3/2] object-cover"
+          className="w-14 h-14 lg:w-28 lg:h-28 rounded-full aspect-[3/2] object-cover"
         />
       </div>
       <button
@@ -51,14 +51,17 @@ const EditProfile = () => {
         Change Profile Information {"->"}
       </button>
       {displayForm ? (
-        <div className="absolute top-10 right-0 translate-x-full shadow-sm shadow-slate-700 rounded-3xl p-5 w-96">
-          <h1>Please complete the following form: </h1>
+        <div className="lg:absolute top-10 lg:right-0 lg:translate-x-full lg:shadow-md shadow-slate-700 rounded-3xl lg:p-5 lg:w-96">
+          <h1 className="text-sm lg:text-base">
+            Please complete the following form:{" "}
+          </h1>
           <form action="" method="POST" onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input
               type="text"
               id="name"
               ref={nameRef}
+              defaultValue={currentUser.displayName}
               className="peer h-9 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600 rounded-lg text-sm"
             />
             <label htmlFor="img">Image URL:</label>
@@ -66,6 +69,7 @@ const EditProfile = () => {
               type="text"
               id="img"
               ref={imgRef}
+              defaultValue={currentUser.photoURL}
               className="peer h-9 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600 rounded-lg text-sm"
             />
             <button

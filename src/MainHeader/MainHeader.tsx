@@ -20,7 +20,7 @@ const MainHeader = () => {
     onAuthStateChanged(auth, (user: any) => {
       setCurrentUser(user);
     });
-  }, [auth]);
+  }, []);
 
   const cartItems = useSelector((state: any) => state.cart);
 
@@ -36,8 +36,10 @@ const MainHeader = () => {
     e.preventDefault();
     try {
       await signOut(auth);
+      setCurrentUser(null);
+      alert("Success");
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
   return (
@@ -65,9 +67,25 @@ const MainHeader = () => {
               </NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer lg:hidden">
-              <NavLink to="/login" onClick={menuHandler}>
-                Iniciar Sesion
-              </NavLink>
+              <div className="flex justify-between items-center">
+                <NavLink
+                  to={currentUser ? "/myprofile/activity" : "/login"}
+                  onClick={menuHandler}
+                >
+                  {`${currentUser ? "Go to my profile" : "Iniciar Sesion"}`}
+                </NavLink>
+                {currentUser ? (
+                  <NavLink
+                    to="/"
+                    onClick={signOutHandle}
+                    className="px-4 bg-red-600 text-sm lg:hidden"
+                  >
+                    Log out
+                  </NavLink>
+                ) : (
+                  ""
+                )}
+              </div>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
               <NavLink to="/shop" onClick={menuHandler}>
@@ -87,8 +105,13 @@ const MainHeader = () => {
         </div>
         <div className="flex lg:flex lg:gap-4  lg:pr-10">
           <BiSearch className="cursor-text hidden lg:block" />
-          <NavLink to="login" className="hidden lg:block group relative">
-            <BiUserCircle className="cursor-pointer" />
+          <div className="group relative">
+            <NavLink
+              to={currentUser ? "/myprofile/account" : "/login"}
+              className="hidden lg:block"
+            >
+              <BiUserCircle className="cursor-pointer" />
+            </NavLink>
             {currentUser ? (
               <div className="hidden absolute group-hover:flex flex-col justify-center items-center gap-2 -left-28 w-52 bg-slate-800 p-2 pt-4 cursor-auto">
                 <img
@@ -98,12 +121,10 @@ const MainHeader = () => {
                 />
                 <h1>Hello, {auth.currentUser.displayName}</h1>
                 <NavLink
-                  to="/"
+                  to="/myprofile/activity"
                   className="bg-red-500 px-2 text-center rounded-lg py-2 w-full hover:bg-red-600"
                 >
-                  <button className="text-center" onClick={signOutHandle}>
-                    Go to profile {"->"}
-                  </button>
+                  <button className="text-center">Go to profile {"->"}</button>
                 </NavLink>
                 <NavLink
                   to="/"
@@ -117,7 +138,7 @@ const MainHeader = () => {
             ) : (
               ""
             )}
-          </NavLink>
+          </div>
           <div className="relative group">
             <NavLink to="/cart">
               <BsCart4 className="cursor-pointer" />
