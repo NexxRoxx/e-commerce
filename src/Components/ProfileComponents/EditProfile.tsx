@@ -1,4 +1,4 @@
-import { auth } from "../Resources/Firebase";
+import { auth } from "../../Resources/Firebase";
 import { useState } from "react";
 import { useRef } from "react";
 import { updateProfile } from "firebase/auth";

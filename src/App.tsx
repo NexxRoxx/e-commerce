@@ -5,18 +5,33 @@ import ErrorPage from "./Pages/ErrorPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import ProductDetail from "./Pages/ProductDetail";
-import ResetPasswordPage from "./Pages/ResetPasswordPage";
+import ResetPasswordPage from "./Components/ProfileComponents/ResetPasswordPage";
 import ShopPage from "./Pages/ShopPage";
-import SignUpPage from "./Pages/SignUpPage";
+import SignUpPage from "./Components/LoginSignupComponents/SignUpPage";
 import { Route, Routes } from "react-router-dom";
 import CartPage from "./Pages/CartPage";
-import ProfileInformation from "./Pages/ProfileInformation";
+import ProfileInformation from "./Components/LoginSignupComponents/ProfileInformation";
 import MyProfile from "./Pages/MyProfile";
-import MyProfileActivity from "./Components/MyProfileActivity";
-import MyProfileAccount from "./Components/MyProfileAccount";
-import EditProfile from "./Components/EditProfile";
+import MyProfileActivity from "./Components/ProfileComponents/MyProfileActivity";
+import MyProfileAccount from "./Components/ProfileComponents/MyProfileAccount";
+import EditProfile from "./Components/ProfileComponents/EditProfile";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./Resources/Firebase";
+import { loginActions } from "./store/login-slice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user: any) => {
+      dispatch(loginActions.setCurrentUser({ user: user }));
+      // setCurrentUser(user);
+    });
+  }, []);
+  const login = useSelector((state: any) => state.currentUser);
+  console.log(login);
   return (
     <>
       <header className="sticky top-0 z-50">

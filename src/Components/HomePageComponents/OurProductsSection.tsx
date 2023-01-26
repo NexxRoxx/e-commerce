@@ -1,10 +1,10 @@
 import OurProductsItems from "./OurProductsItems";
-import gCard from "../assets/gtx.jpg";
-import cpu from "../assets/intel.jpg";
-import board from "../assets/board.jpg";
-import ram from "../assets/ram.jpg";
-import hDrive from "../assets/drive.jpg";
-import accessories from "../assets/mouse.jpg";
+import gCard from "../../assets/gtx.jpg";
+import cpu from "../../assets/intel.jpg";
+import board from "../../assets/board.jpg";
+import ram from "../../assets/ram.jpg";
+import hDrive from "../../assets/drive.jpg";
+import accessories from "../../assets/mouse.jpg";
 
 const OurProductsSection = () => {
   const items = [

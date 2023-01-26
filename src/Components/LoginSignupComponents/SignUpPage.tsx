@@ -1,12 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { updateProfile } from "firebase/auth";
-import { auth } from "../Resources/Firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../Resources/Firebase";
 
-const ProfileInformation = () => {
+const SignUpPage = () => {
   let navigate = useNavigate();
-  const nameRef: any = useRef();
-  const addressRef: any = useRef();
+  const emailRef: any = useRef();
+  const passwordRef: any = useRef();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -15,13 +15,16 @@ const ProfileInformation = () => {
     try {
       setError("");
       setLoading(true);
-      await updateProfile(auth.currentUser, {
-        displayName: nameRef.current.value,
-        photoURL: addressRef.current.value,
-      });
-      navigate("/");
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log(user);
+      navigate("/profileinformation");
     } catch (ere) {
       setError("Failed to log in");
+      console.log(ere);
     }
     setLoading(false);
   };
@@ -45,7 +48,7 @@ const ProfileInformation = () => {
             </div>
             <div className="px-10 pt-4 pb-8 bg-white rounded-tr-4xl">
               <h1 className="text-3xl font-semibold text-gray-900 text-center">
-                Basic Profile Information
+                Sign Up
               </h1>
               <form
                 className="mt-4"
@@ -55,41 +58,42 @@ const ProfileInformation = () => {
               >
                 <div className="relative">
                   <input
-                    id="name"
-                    name="name"
-                    ref={nameRef}
+                    id="email"
+                    name="email"
+                    ref={emailRef}
                     type="text"
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
-                    placeholder="oscar"
+                    placeholder="example@example.com"
                   />
                   <label
-                    htmlFor="name"
+                    htmlFor="email"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm cursor-text"
                   >
-                    Name
+                    Email address
                   </label>
                 </div>
                 <div className="mt-6 relative">
                   <input
-                    id="address"
-                    type="string"
-                    ref={addressRef}
+                    id="password"
+                    type="password"
+                    ref={passwordRef}
                     name="password"
                     className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-indigo-600"
                     placeholder="Password"
                   />
                   <label
-                    htmlFor="address"
+                    htmlFor="password"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm cursor-text"
                   >
-                    Profile Image
+                    Password
                   </label>
                 </div>
+
                 <button
                   type="submit"
-                  className="mt-20 px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500 focus:ring-opacity-80 cursor-pointer"
+                  className="mt-10 px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center block w-full focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500 focus:ring-opacity-80 cursor-pointer"
                 >
-                  Submit
+                  Sign up
                 </button>
               </form>
               <a
@@ -104,7 +108,7 @@ const ProfileInformation = () => {
                   href="#"
                   className="text-indigo-900 opacity-100 font-bold hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
-                  Submit
+                  Sign Up
                 </a>
               </h5>
             </div>
@@ -115,4 +119,4 @@ const ProfileInformation = () => {
   );
 };
 
-export default ProfileInformation;
+export default SignUpPage;

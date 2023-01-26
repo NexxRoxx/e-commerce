@@ -1,12 +1,12 @@
-import amdLogo from "../assets/amd.png";
-import intelLogo from "../assets/intelLogo.png";
-import nvidiaLogo from "../assets/nvidiaLogo.png";
-import samsungLogo from "../assets/samsungLogo.svg";
-import toshibaLogo from "../assets/toshibaLogo.png";
-import razerLogo from "../assets/razerLogo.png";
-import evgaLogo from "../assets/evgaLogo.png";
-import asusLogo from "../assets/asusLogo.png";
-import corsairLogo from "../assets/corsairLogo.png";
+import amdLogo from "../../assets/amd.png";
+import intelLogo from "../../assets/intelLogo.png";
+import nvidiaLogo from "../../assets/nvidiaLogo.png";
+import samsungLogo from "../../assets/samsungLogo.svg";
+import toshibaLogo from "../../assets/toshibaLogo.png";
+import razerLogo from "../../assets/razerLogo.png";
+import evgaLogo from "../../assets/evgaLogo.png";
+import asusLogo from "../../assets/asusLogo.png";
+import corsairLogo from "../../assets/corsairLogo.png";
 
 const FeaturesSection = () => {
   return (

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { updatePassword } from "firebase/auth";
-import { auth } from "../Resources/Firebase";
+import { auth } from "../../Resources/Firebase";
 const ResetPasswordPage = () => {
   const passwordRef: any = useRef();
   const newPasswordRef: any = useRef();

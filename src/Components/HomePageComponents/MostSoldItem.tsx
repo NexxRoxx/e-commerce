@@ -1,7 +1,7 @@
 import { BsCartPlus } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/cart-slice";
+import { cartActions } from "../../store/cart-slice";
 
 const MostSoldItem = (props: any) => {
   const iconsStyles = {

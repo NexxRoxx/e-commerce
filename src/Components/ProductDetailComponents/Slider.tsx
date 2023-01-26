@@ -1,6 +1,6 @@
 import React from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { items } from "../Resources/MostSoldItems";
+import { items } from "../../Resources/MostSoldItems";
 import LittleSlider from "./LittleSlider";
 import { useState } from "react";
 

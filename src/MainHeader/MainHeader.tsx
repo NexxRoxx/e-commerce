@@ -4,23 +4,21 @@ import { BiUserCircle, BiSearch } from "react-icons/bi";
 import { BsCart4 } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Resources/Firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOutFunction } from "../store/login-slice";
 
 const MainHeader = () => {
   const iconsStyles = {
     size: "2rem",
   };
-  const [currentUser, setCurrentUser] = useState();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user: any) => {
-      setCurrentUser(user);
-    });
-  }, []);
+  const navigate = useNavigate();
+  console.log(auth.currentUser);
+  const [currentUser, setCurrentUser] = useState();
 
   const cartItems = useSelector((state: any) => state.cart);
 
@@ -32,15 +30,11 @@ const MainHeader = () => {
       : setDisplayMenu("hidden");
   };
 
-  const signOutHandle = async function (e: any) {
+  const dispatch = useDispatch();
+  const signOutHandle = (e) => {
     e.preventDefault();
-    try {
-      await signOut(auth);
-      setCurrentUser(null);
-      alert("Success");
-    } catch (error) {
-      alert(error);
-    }
+    dispatch<any>(signOutFunction());
+    navigate("/");
   };
   return (
     <IconContext.Provider value={iconsStyles}>

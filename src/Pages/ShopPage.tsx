@@ -1,5 +1,5 @@
 import FiltersLinks from "../Components/FiltersLinks";
-import MostSoldItem from "../Components/MostSoldItem";
+import MostSoldItem from "../Components/HomePageComponents/MostSoldItem";
 import { items } from "../Resources/MostSoldItems";
 
 const ShopPage = () => {

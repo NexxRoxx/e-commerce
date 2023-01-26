@@ -3,7 +3,7 @@ import MostSoldItem from "./MostSoldItem";
 import { useState, useEffect } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { items } from "../Resources/MostSoldItems";
+import { items } from "../../Resources/MostSoldItems";
 
 const MostSoldSection = () => {
   const [numberOfCards, setNumberOfCards] = useState(0);

@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Resources/Firebase";
 const LoginPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const [error, setError] = useState("");

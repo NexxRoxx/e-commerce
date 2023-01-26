@@ -1,6 +1,6 @@
-import xbox from "../assets/xbox.jpg";
-import cpu from "../assets/cpu.jpg";
-import graphicCard from "../assets/graphicCard.jpg";
+import xbox from "../../assets/xbox.jpg";
+import cpu from "../../assets/cpu.jpg";
+import graphicCard from "../../assets/graphicCard.jpg";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useState } from "react";

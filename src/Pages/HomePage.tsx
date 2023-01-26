@@ -1,7 +1,7 @@
-import FeaturesSection from "../Components/FeaturesSection";
-import HomeModal from "../Components/HomeModal";
-import MostSoldSection from "../Components/MostSoldSection";
-import OurProductsSection from "../Components/OurProductsSection";
+import FeaturesSection from "../Components/HomePageComponents/FeaturesSection";
+import HomeModal from "../Components/HomePageComponents/HomeModal";
+import MostSoldSection from "../Components/HomePageComponents/MostSoldSection";
+import OurProductsSection from "../Components/HomePageComponents/OurProductsSection";
 
 const HomePage = () => {
   return (

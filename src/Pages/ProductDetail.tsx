@@ -1,6 +1,6 @@
-import HomeModal from "../Components/HomeModal";
-import SecondSlider from "../Components/SecondSlider";
-import Slider from "../Components/Slider";
+import HomeModal from "../Components/HomePageComponents/HomeModal";
+import SecondSlider from "../Components/ProductDetailComponents/SecondSlider";
+import Slider from "../Components/ProductDetailComponents/Slider";
 
 const ProductDetail = () => {
   return (

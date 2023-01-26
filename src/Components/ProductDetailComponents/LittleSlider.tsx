@@ -1,4 +1,4 @@
-import { items } from "../Resources/MostSoldItems";
+import { items } from "../../Resources/MostSoldItems";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useState } from "react";
 
