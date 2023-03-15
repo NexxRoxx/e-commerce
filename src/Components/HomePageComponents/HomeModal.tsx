@@ -36,6 +36,7 @@ const HomeModal = () => {
           ? "translate-x-0"
           : ""
       } transition-all ease-in-out duration-300`}
+      key="1"
     >
       <img
         className="object-cover h-full w-full brightness-75 aspect-[3/2]"
@@ -53,6 +54,7 @@ const HomeModal = () => {
           ? "translate-x-0"
           : ""
       } transition-all ease-in-out duration-300`}
+      key="2"
     >
       <img
         className="object-cover h-full w-full brightness-75 aspect-[3/2]"
@@ -70,6 +72,7 @@ const HomeModal = () => {
           ? "translate-x-0"
           : ""
       } transition-all ease-in-out duration-300`}
+      key="3"
     >
       <img
         className="object-cover h-full w-full brightness-75"

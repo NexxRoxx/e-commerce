@@ -3,26 +3,25 @@ import { AiOutlineBars } from "react-icons/ai";
 import { BiUserCircle, BiSearch } from "react-icons/bi";
 import { BsCart4 } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { auth } from "../Resources/Firebase";
-import { signOut, onAuthStateChanged } from "firebase/auth";
-import { signOutFunction } from "../store/login-slice";
+import { UserAuth } from "../contexts/AuthContext";
 
 const MainHeader = () => {
   const iconsStyles = {
     size: "2rem",
   };
-
+  const { logout }: any = UserAuth();
   const navigate = useNavigate();
-  console.log(auth.currentUser);
-  const [currentUser, setCurrentUser] = useState();
-
+  //*Cart and login states
+  const { user }: any = UserAuth();
   const cartItems = useSelector((state: any) => state.cart);
 
   const [displayMenu, setDisplayMenu] = useState("hidden");
+  const [error, setError] = useState("");
 
   const menuHandler = () => {
     displayMenu === "hidden"
@@ -30,11 +29,15 @@ const MainHeader = () => {
       : setDisplayMenu("hidden");
   };
 
-  const dispatch = useDispatch();
-  const signOutHandle = (e) => {
+  const signOutHandle = async (e: any) => {
     e.preventDefault();
-    dispatch<any>(signOutFunction());
-    navigate("/");
+    setError("");
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      alert("Something went wrong try again!");
+    }
   };
   return (
     <IconContext.Provider value={iconsStyles}>
@@ -63,19 +66,18 @@ const MainHeader = () => {
             <li className="hover:text-blue-400 hover:cursor-pointer lg:hidden">
               <div className="flex justify-between items-center">
                 <NavLink
-                  to={currentUser ? "/myprofile/activity" : "/login"}
+                  to={user ? "/myprofile/activity" : "/login"}
                   onClick={menuHandler}
                 >
-                  {`${currentUser ? "Go to my profile" : "Iniciar Sesion"}`}
+                  {`${user ? "Go to my profile" : "Iniciar Sesion"}`}
                 </NavLink>
-                {currentUser ? (
-                  <NavLink
-                    to="/"
+                {user ? (
+                  <div
                     onClick={signOutHandle}
                     className="px-4 bg-red-600 text-sm lg:hidden"
                   >
                     Log out
-                  </NavLink>
+                  </div>
                 ) : (
                   ""
                 )}
@@ -101,12 +103,12 @@ const MainHeader = () => {
           <BiSearch className="cursor-text hidden lg:block" />
           <div className="group relative">
             <NavLink
-              to={currentUser ? "/myprofile/account" : "/login"}
+              to={user ? "/myprofile/account" : "/login"}
               className="hidden lg:block"
             >
               <BiUserCircle className="cursor-pointer" />
             </NavLink>
-            {currentUser ? (
+            {user ? (
               <div className="hidden absolute group-hover:flex flex-col justify-center items-center gap-2 -left-28 w-52 bg-slate-800 p-2 pt-4 cursor-auto">
                 <img
                   src={auth.currentUser.photoURL}

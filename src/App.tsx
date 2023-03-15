@@ -15,23 +15,8 @@ import MyProfile from "./Pages/MyProfile";
 import MyProfileActivity from "./Components/ProfileComponents/MyProfileActivity";
 import MyProfileAccount from "./Components/ProfileComponents/MyProfileAccount";
 import EditProfile from "./Components/ProfileComponents/EditProfile";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./Resources/Firebase";
-import { loginActions } from "./store/login-slice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user: any) => {
-      dispatch(loginActions.setCurrentUser({ user: user }));
-      // setCurrentUser(user);
-    });
-  }, []);
-  const login = useSelector((state: any) => state.currentUser);
-  console.log(login);
   return (
     <>
       <header className="sticky top-0 z-50">
@@ -66,25 +51,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <LoginPage /> */
-}
-{
-  /* <SignUpPage /> */
-}
-{
-  /* <ResetPasswordPage /> */
-}
-{
-  /* <ErrorPage /> */
-}
-{
-  /* <HomePage /> */
-}
-{
-  /* <ShopPage /> */
-}
-{
-  /* <ProductDetail /> */
-}

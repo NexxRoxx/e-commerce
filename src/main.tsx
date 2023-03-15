@@ -6,13 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import ErrorPage from "./Pages/ErrorPage";
 import store from "./store";
 import { Provider } from "react-redux";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <AuthContextProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
