@@ -22,6 +22,7 @@ const ShopPage = () => {
                 stars={items[index].stars}
                 price={items[index].price}
                 delivery={items[index].delivery}
+                key={index}
               />
             );
           })}

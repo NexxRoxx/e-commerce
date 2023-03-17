@@ -1,15 +1,21 @@
-import { FiChevronDown } from "react-icons/fi";
 import { IconContext } from "react-icons";
+import FilterLinksElement from "./FilterLinksElement";
 
 const FiltersLinks = () => {
   const iconsStyles = {
     size: "1.5rem",
     color: "black",
   };
+  const filterHeaders = ["Components", "Accessories", "Brands"];
+  const filterCategories = [
+    ["Motherboard", "CPUs", "Storage", "Graphic Cards", "RAM", "Power Supply"],
+    ["Keyboards", "Mouse", "Web Cams", "Headphones", "Speakers"],
+    ["AMD", "Intel", "Asus", "LG", "Samsung", "Nvidia", "Kingston"],
+  ];
   return (
     <IconContext.Provider value={iconsStyles}>
       <div className="w-1/5 hidden lg:block">
-        <button className="p-4 bg-neutral-200 text-neutral-700 font-bold shadow-sm w-full text-start flex justify-between items-center hover:shadow-md hover:text-neutral-500">
+        {/* <button className="p-4 bg-neutral-200 text-neutral-700 font-bold shadow-sm w-full text-start flex justify-between items-center hover:shadow-md hover:text-neutral-500">
           Components <FiChevronDown className="" />
         </button>
         <ul className="flex flex-col gap-2 pl-8 pt-4 pb-2">
@@ -77,7 +83,16 @@ const FiltersLinks = () => {
           <li className="hover:font-bold">
             <a href="#">Kingston</a>
           </li>
-        </ul>
+        </ul> */}
+        {filterHeaders.map((item, index) => {
+          return (
+            <FilterLinksElement
+              headers={item}
+              categories={filterCategories[index]}
+              key={index}
+            />
+          );
+        })}
       </div>
     </IconContext.Provider>
   );
