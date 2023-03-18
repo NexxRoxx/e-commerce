@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { items } from "../Resources/MostSoldItems";
 
 const FilterLinksElement = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const handleFilterChange = (event) => {
+    props.setFilter(event.target.textContent);
+  };
   return (
     <>
       <button
-        className="p-4 bg-neutral-200 text-neutral-700 font-bold shadow-sm w-full text-start flex justify-between items-center hover:shadow-md hover:text-neutral-500"
+        className={`p-4 ${
+          isActive ? "bg-neutral-400" : "bg-neutral-200"
+        } text-neutral-700 font-bold shadow-sm w-full text-start flex justify-between items-center hover:shadow-md hover:text-neutral-500`}
         onClick={() => setIsActive((prev) => !prev)}
       >
         {props.headers} <FiChevronDown className="" />
@@ -18,7 +24,11 @@ const FilterLinksElement = (props) => {
       >
         {props.categories.map((item, index) => {
           return (
-            <li className="hover:font-bold" key={index}>
+            <li
+              className="hover:font-bold cursor-pointer"
+              key={index}
+              onClick={handleFilterChange}
+            >
               {item}
             </li>
           );

@@ -18,6 +18,7 @@ export const items = [
     stars: "5 Stars",
     price: 1499.99,
     delivery: "Free delivery",
+    type: "Graphic Cards",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ export const items = [
     stars: "5 Stars",
     price: 569.99,
     delivery: "Free delivery",
+    type: "CPUs",
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const items = [
     stars: "5 Stars",
     price: 799.99,
     delivery: "Free delivery",
+    type: "MotherBoard",
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ export const items = [
     stars: "5 Stars",
     price: 70.99,
     delivery: "Free delivery",
+    type: "Ram",
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ export const items = [
     stars: "5 Stars",
     price: 499.99,
     delivery: "Free delivery",
+    type: "Storage",
   },
   {
     id: 6,
@@ -64,6 +69,7 @@ export const items = [
     stars: "5 Stars",
     price: 179.99,
     delivery: "Free delivery",
+    type: "Headphones",
   },
   {
     id: 7,
@@ -73,6 +79,7 @@ export const items = [
     stars: "5 Stars",
     price: 3499.99,
     delivery: "Free delivery",
+    type: "Graphic Cards",
   },
   {
     id: 8,
@@ -83,6 +90,7 @@ export const items = [
     stars: "5 Stars",
     price: 429.99,
     delivery: "Free delivery",
+    type: "CPUs",
   },
   {
     id: 9,
@@ -93,6 +101,7 @@ export const items = [
     stars: "5 Stars",
     price: 189.99,
     delivery: "Free delivery",
+    type: "MotherBoard",
   },
   {
     id: 10,
@@ -103,5 +112,6 @@ export const items = [
     stars: "5 Stars",
     price: 159.99,
     delivery: "Free delivery",
+    type: "Storage",
   },
 ];
