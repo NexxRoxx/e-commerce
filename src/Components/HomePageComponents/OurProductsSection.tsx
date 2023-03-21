@@ -10,18 +10,18 @@ const OurProductsSection = () => {
   const items = [
     {
       img: gCard,
-      title: "Graphic card",
+      title: "Graphic Cards",
       description: "FINE-TUNED TO PERFECTION",
     },
     {
       img: cpu,
-      title: "CPU",
+      title: "CPUs",
       description:
         " The world’s most advanced PC processors for gamers and creators extends performance to power your PC.",
     },
     {
       img: board,
-      title: "Motherboard",
+      title: "MotherBoard",
       description:
         "Designed and tested to find the perfect balance of raw power and iron-clad stability",
     },

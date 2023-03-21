@@ -8,7 +8,43 @@ import rtx4090 from "../assets/mostSoldImg/2/video/one.jpg";
 import intelCPU from "../assets/mostSoldImg/2/cpu/one.jpg";
 import tomahawk from "../assets/mostSoldImg/2/board/one.jpg";
 import wdSSD from "../assets/mostSoldImg/2/ssd/one.jpg";
-
+const asusRogFolder = import.meta.glob("../assets/mostSoldImg/1/asusROG/*");
+const rtx3090Folder = import.meta.glob("../assets/mostSoldImg/1/rtx3090/*");
+const ryzen9Folder = import.meta.glob("../assets/mostSoldImg/1/Ryzen9/*");
+const furyRamFolder = import.meta.glob("../assets/mostSoldImg/1/ram/*");
+const samsungSSDFolder = import.meta.glob("../assets/mostSoldImg/1/ssd/*");
+const ryzerHeadphonesDFolder = import.meta.glob(
+  "../assets/mostSoldImg/1/headphones/*"
+);
+const rtx4090Folder = import.meta.glob("../assets/mostSoldImg/2/video/*");
+const msiBoardFolder = import.meta.glob("../assets/mostSoldImg/2/board/*");
+const wdSSDFolder = import.meta.glob("../assets/mostSoldImg/2/ssd/*");
+const arrayOfFoldersImages = [
+  asusRogFolder,
+  rtx3090Folder,
+  ryzen9Folder,
+  furyRamFolder,
+  samsungSSDFolder,
+  ryzerHeadphonesDFolder,
+  rtx4090Folder,
+  msiBoardFolder,
+  wdSSDFolder,
+];
+// const asusRogImages = [];
+const functionToPushImagesToArray = (imagesObject, arrayDestination) => {
+  for (const [key, value] of Object.entries(imagesObject)) {
+    arrayDestination.push(key);
+  }
+};
+const modifiedArrays = arrayOfFoldersImages.map(function (element) {
+  const modifiedArray = []; // create an empty array for each element
+  for (let i = 1; i <= element; i++) {
+    // apply a function to each element and store the result in the element's modifiedArray
+    modifiedArray.push(i * element);
+  }
+  return modifiedArray; // return the modifiedArray for this element
+});
+// functionToPushImagesToArray(asusRogFolder, asusRogImages);
 export const items = [
   {
     id: 1,

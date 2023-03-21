@@ -15,6 +15,7 @@ import MyProfile from "./Pages/MyProfile";
 import MyProfileActivity from "./Components/ProfileComponents/MyProfileActivity";
 import MyProfileAccount from "./Components/ProfileComponents/MyProfileAccount";
 import EditProfile from "./Components/ProfileComponents/EditProfile";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <header className="sticky top-0 z-50">
         <MainHeader />
       </header>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login/signup" element={<SignUpPage />} />

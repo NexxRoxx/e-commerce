@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
-import { items } from "../Resources/MostSoldItems";
+import { UserAuth } from "../contexts/AuthContext";
 
 const FilterLinksElement = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const { setFilterState }: any = UserAuth();
   const handleFilterChange = (event) => {
-    props.setFilter(event.target.textContent);
+    setFilterState(event.target.textContent);
   };
   return (
     <>

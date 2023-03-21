@@ -1,7 +1,7 @@
 import { IconContext } from "react-icons";
 import FilterLinksElement from "./FilterLinksElement";
 
-const FiltersLinks = (props) => {
+const FiltersLinks = () => {
   const iconsStyles = {
     size: "1.5rem",
     color: "black",
@@ -21,7 +21,6 @@ const FiltersLinks = (props) => {
               headers={item}
               categories={filterCategories[index]}
               key={index}
-              setFilter={props.setFilter}
             />
           );
         })}
