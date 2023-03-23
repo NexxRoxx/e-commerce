@@ -2,6 +2,7 @@ import { BsCartPlus } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { NavLink } from "react-router-dom";
 
 const MostSoldItem = (props: any) => {
   const iconsStyles = {
@@ -35,12 +36,12 @@ const MostSoldItem = (props: any) => {
         <span className=" text-neutral-900  text-sm pb-2 pl-2">
           {props.branch}
         </span>
-        <a
-          href="#"
+        <NavLink
+          to={`/detail/${props.id}`}
           className=" text-md text-blue-700 font-medium pl-2 cursor-pointer"
         >
           {props.product}
-        </a>
+        </NavLink>
         <span className="pl-2">{props.stars}</span>
         <span className="font-bold text-md text-neutral-900 pl-2">
           {props.price}

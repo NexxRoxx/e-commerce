@@ -1,19 +1,22 @@
 import HomeModal from "../Components/HomePageComponents/HomeModal";
 import SecondSlider from "../Components/ProductDetailComponents/SecondSlider";
 import Slider from "../Components/ProductDetailComponents/Slider";
+import { useParams } from "react-router-dom";
+import { items } from "../Resources/MostSoldItems";
 
 const ProductDetail = () => {
+  const { id } = useParams();
+  const product = items.find((p) => p.id === +id);
   return (
     <div className="pt-4 bg-slate-900 lg:flex justify-around ">
       <div className="flex justify-center flex-col items-center mt-1 mb-4 p-4 lg:pl-8 lg:w-2/4">
-        {/* <Slider /> */}
         <h4 className="text-white self-start pb-2">root/root/root/root</h4>
-        <SecondSlider />
+        <SecondSlider product={product} />
       </div>
       <div className="lg:w-2/4 lg:mt-20">
         <span className="text-white opacity-70 pl-4">Brand</span>
         <h1 className="text-white text-lg pl-4 font-bold">
-          Samsung 970 EVO Plus SSD 2TB NVMe M.2 Internal Solid State Hard Drive
+          {product.productName}
         </h1>
         <div className="pl-4">
           <h4 className="text-yellow-500 font-bold">$ 459.99</h4>

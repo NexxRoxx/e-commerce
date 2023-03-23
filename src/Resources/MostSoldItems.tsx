@@ -17,6 +17,7 @@ const ryzerHeadphonesDFolder = import.meta.glob(
   "../assets/mostSoldImg/1/headphones/*"
 );
 const rtx4090Folder = import.meta.glob("../assets/mostSoldImg/2/video/*");
+const intelCPUFolder = import.meta.glob("../assets/mostSoldImg/2/cpu/*");
 const msiBoardFolder = import.meta.glob("../assets/mostSoldImg/2/board/*");
 const wdSSDFolder = import.meta.glob("../assets/mostSoldImg/2/ssd/*");
 const arrayOfFoldersImages = [
@@ -27,24 +28,11 @@ const arrayOfFoldersImages = [
   samsungSSDFolder,
   ryzerHeadphonesDFolder,
   rtx4090Folder,
+  intelCPUFolder,
   msiBoardFolder,
   wdSSDFolder,
 ];
-// const asusRogImages = [];
-const functionToPushImagesToArray = (imagesObject, arrayDestination) => {
-  for (const [key, value] of Object.entries(imagesObject)) {
-    arrayDestination.push(key);
-  }
-};
-const modifiedArrays = arrayOfFoldersImages.map(function (element) {
-  const modifiedArray = []; // create an empty array for each element
-  for (let i = 1; i <= element; i++) {
-    // apply a function to each element and store the result in the element's modifiedArray
-    modifiedArray.push(i * element);
-  }
-  return modifiedArray; // return the modifiedArray for this element
-});
-// functionToPushImagesToArray(asusRogFolder, asusRogImages);
+
 export const items = [
   {
     id: 1,
@@ -55,6 +43,7 @@ export const items = [
     price: 1499.99,
     delivery: "Free delivery",
     type: "Graphic Cards",
+    imagesFolder: arrayOfFoldersImages[0],
   },
   {
     id: 2,
@@ -65,6 +54,7 @@ export const items = [
     price: 569.99,
     delivery: "Free delivery",
     type: "CPUs",
+    imagesFolder: arrayOfFoldersImages[1],
   },
   {
     id: 3,
@@ -75,6 +65,7 @@ export const items = [
     price: 799.99,
     delivery: "Free delivery",
     type: "MotherBoard",
+    imagesFolder: arrayOfFoldersImages[2],
   },
   {
     id: 4,
@@ -85,6 +76,7 @@ export const items = [
     price: 70.99,
     delivery: "Free delivery",
     type: "Ram",
+    imagesFolder: arrayOfFoldersImages[3],
   },
   {
     id: 5,
@@ -96,6 +88,7 @@ export const items = [
     price: 499.99,
     delivery: "Free delivery",
     type: "Storage",
+    imagesFolder: arrayOfFoldersImages[4],
   },
   {
     id: 6,
@@ -106,6 +99,7 @@ export const items = [
     price: 179.99,
     delivery: "Free delivery",
     type: "Headphones",
+    imagesFolder: arrayOfFoldersImages[5],
   },
   {
     id: 7,
@@ -116,6 +110,7 @@ export const items = [
     price: 3499.99,
     delivery: "Free delivery",
     type: "Graphic Cards",
+    imagesFolder: arrayOfFoldersImages[6],
   },
   {
     id: 8,
@@ -127,6 +122,7 @@ export const items = [
     price: 429.99,
     delivery: "Free delivery",
     type: "CPUs",
+    imagesFolder: arrayOfFoldersImages[7],
   },
   {
     id: 9,
@@ -138,6 +134,7 @@ export const items = [
     price: 189.99,
     delivery: "Free delivery",
     type: "MotherBoard",
+    imagesFolder: arrayOfFoldersImages[8],
   },
   {
     id: 10,
@@ -149,5 +146,6 @@ export const items = [
     price: 159.99,
     delivery: "Free delivery",
     type: "Storage",
+    imagesFolder: arrayOfFoldersImages[9],
   },
 ];
