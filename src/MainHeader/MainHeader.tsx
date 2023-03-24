@@ -89,10 +89,10 @@ const MainHeader = () => {
               </NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
-              Soporte
+              <NavLink to="/support">Soporte</NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
-              Garantia
+              <NavLink to="/warranty">Garantia</NavLink>
             </li>
             <li className="hover:text-blue-400 hover:cursor-pointer">
               Contacto

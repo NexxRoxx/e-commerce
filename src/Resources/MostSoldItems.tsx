@@ -21,9 +21,9 @@ const intelCPUFolder = import.meta.glob("../assets/mostSoldImg/2/cpu/*");
 const msiBoardFolder = import.meta.glob("../assets/mostSoldImg/2/board/*");
 const wdSSDFolder = import.meta.glob("../assets/mostSoldImg/2/ssd/*");
 const arrayOfFoldersImages = [
-  asusRogFolder,
   rtx3090Folder,
   ryzen9Folder,
+  asusRogFolder,
   furyRamFolder,
   samsungSSDFolder,
   ryzerHeadphonesDFolder,

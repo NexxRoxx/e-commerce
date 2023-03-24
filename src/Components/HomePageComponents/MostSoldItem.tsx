@@ -37,7 +37,7 @@ const MostSoldItem = (props: any) => {
           {props.branch}
         </span>
         <NavLink
-          to={`/detail/${props.id}`}
+          to={`/detail/${props.product}`}
           className=" text-md text-blue-700 font-medium pl-2 cursor-pointer"
         >
           {props.product}

@@ -11,7 +11,16 @@ const SecondSlider = (props) => {
           props.product.imagesFolder[key]()
         )
       )
-        .then((modules) => setImageModules(modules))
+        .then((modules) => {
+          const sortedArray = modules.sort((a, b) => {
+            const order = ["one.", "two.", "three.", "four.", "five.", "six."];
+            const aIndex = order.findIndex((x) => a["default"].includes(x));
+            const bIndex = order.findIndex((x) => b["default"].includes(x));
+            return aIndex - bIndex;
+          });
+          console.log(sortedArray);
+          setImageModules(sortedArray);
+        })
         .catch((error) => console.error(error));
     }, []);
     return imageModules;

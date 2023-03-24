@@ -1,20 +1,29 @@
 import HomeModal from "../Components/HomePageComponents/HomeModal";
 import SecondSlider from "../Components/ProductDetailComponents/SecondSlider";
 import Slider from "../Components/ProductDetailComponents/Slider";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { items } from "../Resources/MostSoldItems";
+import { UserAuth } from "../contexts/AuthContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const product = items.find((p) => p.id === +id);
+  const product = items.find((p) => p.productName === id.replaceAll("%", ""));
+  const { setFilterState }: any = UserAuth();
+  console.log(product);
   return (
     <div className="pt-4 bg-slate-900 lg:flex justify-around ">
       <div className="flex justify-center flex-col items-center mt-1 mb-4 p-4 lg:pl-8 lg:w-2/4">
-        <h4 className="text-white self-start pb-2">root/root/root/root</h4>
+        <h4 className="text-blue-600 self-start pb-2">
+          <NavLink to="/">home</NavLink>/
+          <NavLink to="/shop" onClick={() => setFilterState(product.type)}>
+            {product.type}
+          </NavLink>
+          /{product.productName}
+        </h4>
         <SecondSlider product={product} />
       </div>
       <div className="lg:w-2/4 lg:mt-20">
-        <span className="text-white opacity-70 pl-4">Brand</span>
+        <span className="text-white opacity-70 pl-4">{product.branch}</span>
         <h1 className="text-white text-lg pl-4 font-bold">
           {product.productName}
         </h1>

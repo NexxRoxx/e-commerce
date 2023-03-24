@@ -16,6 +16,8 @@ import MyProfileActivity from "./Components/ProfileComponents/MyProfileActivity"
 import MyProfileAccount from "./Components/ProfileComponents/MyProfileAccount";
 import EditProfile from "./Components/ProfileComponents/EditProfile";
 import ScrollToTop from "./Components/ScrollToTop";
+import SupportPage from "./Pages/SupportPage";
+import WarrantyPage from "./Pages/WarrantyPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/warranty" element={<WarrantyPage />} />
         <Route path="/login/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/shop" element={<ShopPage />} />
