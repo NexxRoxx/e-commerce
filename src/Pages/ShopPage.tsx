@@ -11,16 +11,16 @@ const ShopPage = () => {
       item.branch.toLowerCase().includes(filter.toLowerCase())
   );
   return (
-    <div>
+    <div className="relative">
       <header className="relative bg-slate-800">
         <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-800 opacity-50" />
         <h1 className="text-6xl font-bold text-center text-white py-4 relative z-10">
           Our Shop
         </h1>
       </header>
-      <div className="flex w-full">
+      <div className="flex w-full bg-gray-200">
         <FiltersLinks />
-        <div className=" grid grid-cols-2 lg:grid-cols-4 grid-rows-[repeat(5,0.5fr)] w-full lg:w-4/5 lg:p-10 gap-y-8 bg-gray-200 bg-opacity-70 relative">
+        <div className=" grid grid-cols-1 justify-items-start lg:grid-cols-4 grid-rows-[repeat(5,0.5fr)] w-full lg:w-4/5 lg:p-10 gap-y-8 bg-gray-200 bg-opacity-70 relative">
           {/* <p className="absolute top-0 left-0 p-1">
             Filters:{" "}
             <button className="bg-slate-400 text-sm p-1 rounded">
