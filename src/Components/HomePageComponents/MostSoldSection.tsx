@@ -40,7 +40,7 @@ const MostSoldSection = () => {
   const clickRightHandler = () => {
     if (
       (numberOfCards === 5 && cardsRender === 5) ||
-      (numberOfCards === 9 && cardsRender === 1)
+      (numberOfCards === 9 && cardsRender === 3)
     ) {
       return;
     }
@@ -60,7 +60,7 @@ const MostSoldSection = () => {
           {/* <h1 className="bg-slate-800 text-2xl pl-2 pt-3 pb-4 text-white font-medium"> */}
           MOST SOLD PRODUCTS
         </h1>
-        <div className="flex overflow-x-auto overflow-y-hidden gap-4 lg:grid sm:grid-cols-3 lg:grid-cols-5 px-10 pb-10 relative shrink-0">
+        <div className="flex overflow-x-auto overflow-y-hidden gap-4 md:grid md:grid-cols-3 lg:grid-cols-5 px-10 pb-10 relative shrink-0">
           {/* <div className=" grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 px-10 pb-10 relative"> */}
           {/* <div className="bg-slate-800 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-x-2 px-10 pb-10 relative"> */}
           {items.map((item, index) => {
@@ -96,7 +96,10 @@ const MostSoldSection = () => {
             className="absolute right-4 bottom-2/4 fill-slate-300 p-2 bg-gray-600 bg-opacity-60 cursor-pointer z-50 rounded-lg"
             onClick={clickRightHandler}
           /> */}
-          <button className="hidden lg:flex items-center bg-gray-200 hover:bg-gray-300 rounded-xl p-2 absolute left-4 bottom-2/4 transform rotate-180 opacity-70">
+          <button
+            className="hidden md:flex items-center bg-gray-200 hover:bg-gray-300 rounded-xl p-2 absolute left-4 bottom-2/4 transform rotate-180 opacity-70"
+            onClick={() => clickLeftHandler()}
+          >
             <svg
               className="w-6 h-6 transform rotate-180"
               fill="none"
@@ -112,7 +115,10 @@ const MostSoldSection = () => {
               ></path>
             </svg>
           </button>
-          <button className="hidden lg:flex items-center bg-gray-200 hover:bg-gray-300 rounded-xl p-2 absolute right-8 bottom-2/4 opacity-60">
+          <button
+            className="hidden md:flex items-center bg-gray-200 hover:bg-gray-300 rounded-xl p-2 absolute right-8 bottom-2/4 opacity-60"
+            onClick={() => clickRightHandler()}
+          >
             <svg
               className="w-6 h-6"
               fill="none"

@@ -1,6 +1,9 @@
 import xbox from "../../assets/xbox.jpg";
 import cpu from "../../assets/cpu.jpg";
 import graphicCard from "../../assets/graphicCard.jpg";
+import promo1 from "../../assets/promoImage3.png";
+import promo2 from "../../assets/promoImage2.jpg";
+import promo3 from "../../assets/promoImage1.jpg";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useState } from "react";
@@ -39,8 +42,8 @@ const HomeModal = () => {
       key="1"
     >
       <img
-        className="object-cover h-full w-full brightness-75 aspect-[3/2]"
-        src={graphicCard}
+        className="object-fill h-full w-full aspect-[3/2]"
+        src={promo1}
         alt="Image of anXbox One Controller"
       />
     </div>,
@@ -57,8 +60,8 @@ const HomeModal = () => {
       key="2"
     >
       <img
-        className="object-cover h-full w-full brightness-75 aspect-[3/2]"
-        src={cpu}
+        className="object-fill h-full w-full brightness-75 aspect-[3/2]"
+        src={promo2}
         alt="Image of anXbox One Controller"
       />
     </div>,
@@ -75,8 +78,8 @@ const HomeModal = () => {
       key="3"
     >
       <img
-        className="object-cover h-full w-full brightness-75"
-        src={xbox}
+        className="object-fill h-full w-full brightness-75"
+        src={promo3}
         alt="Image of anXbox One Controller"
       />
     </div>,

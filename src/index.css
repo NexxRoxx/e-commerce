@@ -86,6 +86,10 @@ button:focus-visible {
   transition: all 0.5s ease-in-out;
 }
 
+img {
+  image-rendering: -webkit-optimize-contrast !important;
+}
+
 @keyframes showBox {
   0% {
     max-height: 0;
